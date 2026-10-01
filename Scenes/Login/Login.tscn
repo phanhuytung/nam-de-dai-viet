@@ -45,10 +45,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -61,10 +57,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = 2.0
+offset_top = 527.0
+offset_right = 2.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -79,10 +75,10 @@ anchor_left = 0.05
 anchor_top = 0.45200002
 anchor_right = 0.05
 anchor_bottom = 0.45200002
-offset_left = 75.5
-offset_top = -54.791992
-offset_right = 632.5
-offset_bottom = 235.208
+offset_left = 113.0
+offset_top = 83.19202
+offset_right = 624.0
+offset_bottom = 376.192
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleEmpty")
@@ -122,9 +118,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
-offset_top = 7.848007
+offset_top = -127.76796
 offset_right = -87.649994
-offset_bottom = -45.151962
+offset_bottom = 90.46402
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 14
@@ -182,49 +178,35 @@ stretch_mode = 5
 [node name="PasswordToggle" type="TextureButton" parent="Background/CenterPanel/Content/PasswordRow/PasswordInput" unique_id=1318482608]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 412.35
-offset_top = -1.2600098
-offset_right = 462.35
-offset_bottom = 52.73999
+offset_left = 360.00003
+offset_top = -1.2320557
+offset_right = 410.00003
+offset_bottom = 52.767944
 tooltip_text = "Hiện/ẩn mật khẩu"
 texture_normal = ExtResource("8_idarh")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="RememberMe" type="CheckBox" parent="Background/CenterPanel/Content"]
-custom_minimum_size = Vector2(0, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.84, 0.7, 1)
-theme_override_colors/font_hover_color = Color(1, 0.94, 0.78, 1)
-theme_override_font_sizes/font_size = 16
-text = "Ghi nhớ tài khoản & mật khẩu"
-
-[node name="Status" type="Label" parent="Background/CenterPanel/Content"]
+[node name="Status" type="Label" parent="Background/CenterPanel/Content" unique_id=557356631]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
 theme_override_font_sizes/font_size = 14
-text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="LoginButton" type="Button" parent="Background/CenterPanel/Content" unique_id=689596382]
-custom_minimum_size = Vector2(0, 56)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.94, 0.78, 1)
-theme_override_colors/font_hover_color = Color(1, 0.97, 0.86, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 0.92, 1)
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleLoginButton")
-theme_override_styles/hover = SubResource("StyleLoginButton")
-theme_override_styles/pressed = SubResource("StyleLoginButton")
-theme_override_styles/focus = SubResource("StyleLoginButton")
-text = "ĐĂNG NHẬP"
 
 [node name="Links" type="HBoxContainer" parent="Background/CenterPanel/Content" unique_id=865890305]
 layout_mode = 2
 theme_override_constants/separation = 18
 alignment = 1
+
+[node name="RememberMe" type="CheckBox" parent="Background/CenterPanel/Content/Links" unique_id=1717452947]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.84, 0.7, 1)
+theme_override_colors/font_hover_color = Color(1, 0.94, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+text = "Ghi nhớ"
 
 [node name="ForgotButton" type="Button" parent="Background/CenterPanel/Content/Links" unique_id=1222934277]
 layout_mode = 2
@@ -234,8 +216,21 @@ text = "Quên mật khẩu?"
 layout_mode = 2
 text = "Đăng ký"
 
+[node name="LoginButton" type="Button" parent="Background/CenterPanel/Content" unique_id=689596382]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.92, 1)
+theme_override_colors/font_hover_color = Color(1, 0.97, 0.86, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleLoginButton")
+theme_override_styles/pressed = SubResource("StyleLoginButton")
+theme_override_styles/hover = SubResource("StyleLoginButton")
+theme_override_styles/focus = SubResource("StyleLoginButton")
+text = "ĐĂNG NHẬP"
+
 [connection signal="pressed" from="Background/CenterPanel/Content/PasswordRow/PasswordInput/PasswordToggle" to="." method="_on_password_toggle_pressed"]
-[connection signal="toggled" from="Background/CenterPanel/Content/RememberMe" to="." method="_on_remember_me_toggled"]
-[connection signal="pressed" from="Background/CenterPanel/Content/LoginButton" to="." method="_on_login_pressed"]
+[connection signal="toggled" from="Background/CenterPanel/Content/Links/RememberMe" to="." method="_on_remember_me_toggled"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/ForgotButton" to="." method="_on_forgot_pressed"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/RegisterButton" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="Background/CenterPanel/Content/LoginButton" to="." method="_on_login_pressed"]
