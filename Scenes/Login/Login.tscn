@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://jc04qtti6ntv" path="res://Scripts/Login/Login.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bei1l6noboih4" path="res://Background/nen_dang_nhap.png" id="2_bg"]
 [ext_resource type="Texture2D" uid="uid://fmq6w52ab25m" path="res://Background/man_hinh_dang_nhap.png" id="3_decor"]
-[ext_resource type="Texture2D" uid="uid://bcrrpk201id0j" path="res://Background/khung_vien.png" id="5_frame"]
 [ext_resource type="Texture2D" uid="uid://bpbxudaotpjce" path="res://Background/khung_nhap_chu.png" id="6_input"]
 [ext_resource type="Texture2D" uid="uid://bgfwfglxid0at" path="res://Background/icon_nguoi_dung.png" id="7_user"]
 [ext_resource type="Texture2D" uid="uid://bn8l0lxqhwfet" path="res://Background/icon_mat_mk.png" id="8_idarh"]
@@ -55,8 +54,8 @@ stretch_mode = 5
 [node name="Background" type="TextureRect" parent="." unique_id=1267869478]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.389
 anchor_right = 1.0
-anchor_top = 0.41171876
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -68,28 +67,14 @@ stretch_mode = 5
 [node name="CenterPanel" type="Panel" parent="Background" unique_id=928563985]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.51180556
-anchor_top = 0.3050359
-anchor_right = 0.51180556
-anchor_bottom = 0.3050359
-offset_left = -255.5
-offset_top = -146.5
-offset_right = 255.5
-offset_bottom = 146.5
+anchor_top = 0.372
+anchor_bottom = 0.594
+offset_left = 129.0
+offset_right = 594.0
+offset_bottom = 127.995514
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleEmpty")
-
-[node name="Frame" type="TextureRect" parent="Background/CenterPanel" unique_id=1264767587]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("5_frame")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="UsernameFrame" type="TextureRect" parent="Background/CenterPanel" unique_id=327666201]
 layout_mode = 0
@@ -116,12 +101,9 @@ stretch_mode = 5
 [node name="Content" type="VBoxContainer" parent="Background/CenterPanel" unique_id=1764121340]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 42.0
-offset_top = 0.0
 offset_right = -42.0
 offset_bottom = -55.0
 grow_horizontal = 2
@@ -141,7 +123,6 @@ clear_button_enabled = true
 
 [node name="UserIcon" type="TextureRect" parent="Background/CenterPanel/Content/UsernameInput" unique_id=2067626467]
 layout_mode = 0
-anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 6.0
 offset_top = 5.0
@@ -168,12 +149,11 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleButton")
 placeholder_text = "Mật khẩu"
 alignment = 1
-secret = true
 virtual_keyboard_type = 6
+secret = true
 
 [node name="LockIcon" type="TextureRect" parent="Background/CenterPanel/Content/PasswordRow/PasswordInput" unique_id=869384275]
 layout_mode = 0
-anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 2.0
 offset_top = 5.0
@@ -191,8 +171,8 @@ layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Hiện/ẩn mật khẩu"
 texture_normal = ExtResource("8_idarh")
-texture_hover = ExtResource("8_idarh")
 texture_pressed = ExtResource("8_idarh")
+texture_hover = ExtResource("8_idarh")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -203,7 +183,6 @@ theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
 theme_override_font_sizes/font_size = 14
 horizontal_alignment = 1
 vertical_alignment = 1
-text = ""
 
 [node name="Links" type="HFlowContainer" parent="Background/CenterPanel/Content" unique_id=865890305]
 custom_minimum_size = Vector2(0, 32)
@@ -215,7 +194,7 @@ alignment = 1
 [node name="RememberMe" type="CheckBox" parent="Background/CenterPanel/Content/Links" unique_id=1717452947]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.84, 0.7, 1)
+theme_override_colors/font_color = Color(0.06, 0.04388, 0.028800001, 1)
 theme_override_colors/font_hover_color = Color(1, 0.94, 0.78, 1)
 theme_override_font_sizes/font_size = 16
 text = "Ghi nhớ"
@@ -223,24 +202,25 @@ text = "Ghi nhớ"
 [node name="ForgotButton" type="Button" parent="Background/CenterPanel/Content/Links" unique_id=1222934277]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.76, 0.76, 1)
 text = "Quên mật khẩu?"
 
 [node name="RegisterButton" type="Button" parent="Background/CenterPanel/Content/Links" unique_id=75592488]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.76, 0.76, 1)
 text = "Đăng ký"
 
-[node name="LoginButton" type="Button" parent="Background/CenterPanel" unique_id=689596382]
+[node name="LoginButton" type="Button" parent="Background" unique_id=689596382]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 42.0
-offset_top = -55.0
-offset_right = -42.0
-offset_bottom = -5.0
+offset_left = 136.0
+offset_top = -232.08002
+offset_right = -138.0
+offset_bottom = -32.080017
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -257,4 +237,4 @@ text = "ĐĂNG NHẬP"
 [connection signal="toggled" from="Background/CenterPanel/Content/Links/RememberMe" to="." method="_on_remember_me_toggled"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/ForgotButton" to="." method="_on_forgot_pressed"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/RegisterButton" to="." method="_on_register_pressed"]
-[connection signal="pressed" from="Background/CenterPanel/LoginButton" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="Background/LoginButton" to="." method="_on_login_pressed"]
