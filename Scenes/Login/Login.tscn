@@ -193,12 +193,24 @@ text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[sub_resource type="StyleBoxTexture" id="StyleLoginButton"]
+texture = ExtResource("6_input")
+texture_margin_left = 18.0
+texture_margin_top = 8.0
+texture_margin_right = 18.0
+texture_margin_bottom = 8.0
+
 [node name="LoginButton" type="Button" parent="Background/CenterPanel/Content" unique_id=689596382]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.94, 0.78, 1)
+theme_override_colors/font_hover_color = Color(1, 0.97, 0.86, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.92, 1)
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/normal = SubResource("StyleLoginButton")
+theme_override_styles/hover = SubResource("StyleLoginButton")
+theme_override_styles/pressed = SubResource("StyleLoginButton")
+theme_override_styles/focus = SubResource("StyleLoginButton")
 text = "ĐĂNG NHẬP"
 
 [node name="Links" type="HBoxContainer" parent="Background/CenterPanel/Content" unique_id=865890305]
