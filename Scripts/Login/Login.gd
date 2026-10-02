@@ -16,16 +16,20 @@ const EYE_CLOSED := "res://Background/icon_khoa.png"
 # All four edges use percentages of the Background area, so resizing the
 # window changes the position/size proportionally instead of adding pixels.
 const DESIGN_VIEWPORT_SIZE := Vector2(720.0, 1280.0)
+const DESIGN_BACKGROUND_TOP := 0.389
+const DESIGN_BACKGROUND_HEIGHT := 1.0 - DESIGN_BACKGROUND_TOP
 
-const CENTER_LEFT := 0.17916667
-const CENTER_TOP := 0.372
-const CENTER_RIGHT := 0.825
-const CENTER_BOTTOM := 0.7576604
+# Pixel positions from the current 720x1280 2D-editor layout,
+# converted to percentages using the project design size.
+const CENTER_LEFT := 129.0 / DESIGN_VIEWPORT_SIZE.x
+const CENTER_TOP := 290.93376 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const CENTER_RIGHT := 594.0 / DESIGN_VIEWPORT_SIZE.x
+const CENTER_BOTTOM := 592.551054 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
 
-const LOGIN_LEFT := 0.18888889
-const LOGIN_TOP := 0.70325285
-const LOGIN_RIGHT := 0.825
-const LOGIN_BOTTOM := 0.95898116
+const LOGIN_LEFT := 136.0 / DESIGN_VIEWPORT_SIZE.x
+const LOGIN_TOP := 550.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const LOGIN_RIGHT := 594.0 / DESIGN_VIEWPORT_SIZE.x
+const LOGIN_BOTTOM := 750.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
 
 func _ready() -> void:
 	_apply_responsive_layout()
