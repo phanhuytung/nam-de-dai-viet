@@ -23,6 +23,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxTexture" id="StyleLoginButton"]
+texture = ExtResource("6_input")
+texture_margin_left = 18.0
+texture_margin_top = 8.0
+texture_margin_right = 18.0
+texture_margin_bottom = 8.0
+
 [node name="Login" type="Control" unique_id=1891032628]
 layout_mode = 3
 anchors_preset = 15
@@ -192,13 +199,6 @@ theme_override_font_sizes/font_size = 14
 text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleLoginButton"]
-texture = ExtResource("6_input")
-texture_margin_left = 18.0
-texture_margin_top = 8.0
-texture_margin_right = 18.0
-texture_margin_bottom = 8.0
 
 [node name="LoginButton" type="Button" parent="Background/CenterPanel/Content" unique_id=689596382]
 custom_minimum_size = Vector2(0, 56)
