@@ -1,0 +1,207 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Login/Login.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://Background/nen_dang_nhap.png" id="2_bg"]
+[ext_resource type="Texture2D" path="res://Background/man_hinh_dang_nhap.png" id="3_decor"]
+[ext_resource type="Texture2D" path="res://Background/nhan_vat_dai_de.png" id="4_character"]
+[ext_resource type="Texture2D" path="res://Background/khung_vien.png" id="5_frame"]
+[ext_resource type="Texture2D" path="res://Background/khung_nhap_chu.png" id="6_input"]
+[ext_resource type="Texture2D" path="res://Background/icon_nguoi_dung.png" id="7_user"]
+[ext_resource type="Texture2D" path="res://Background/icon_khoa.png" id="8_lock"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleEmpty"]
+[sub_resource type="StyleBoxFlat" id="StyleButton"]
+bg_color = Color(0.19, 0.12, 0.055, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78, 0.61, 0.28, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Decor" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_decor")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+modulate = Color(1, 1, 1, 0.35)
+
+[node name="Character" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.36
+anchor_bottom = 0.94
+offset_top = -170.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_character")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="CenterPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -245.0
+offset_right = 235.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleEmpty")
+
+[node name="Frame" type="TextureRect" parent="CenterPanel"]
+layout_mode = 2
+texture = ExtResource("5_frame")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="CenterPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="CenterPanel/Content"]
+layout_mode = 2
+text = "NẠM ĐẾ ĐẠI VIỆT"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.96, 0.79, 0.36, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="Subtitle" type="Label" parent="CenterPanel/Content"]
+layout_mode = 2
+text = "ĐĂNG NHẬP"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.94, 0.88, 0.72, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="UsernameInput" type="LineEdit" parent="CenterPanel/Content"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+placeholder_text = "Tên tài khoản"
+alignment = 1
+theme_override_colors/font_color = Color(0.95, 0.9, 0.78, 1)
+theme_override_colors/font_placeholder_color = Color(0.65, 0.58, 0.45, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButton")
+clear_button_enabled = true
+
+[node name="PasswordRow" type="HBoxContainer" parent="CenterPanel/Content"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PasswordInput" type="LineEdit" parent="CenterPanel/Content/PasswordRow"]
+custom_minimum_size = Vector2(0, 54)
+size_flags_horizontal = 3
+layout_mode = 2
+placeholder_text = "Mật khẩu"
+alignment = 1
+theme_override_colors/font_color = Color(0.95, 0.9, 0.78, 1)
+theme_override_colors/font_placeholder_color = Color(0.65, 0.58, 0.45, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButton")
+secret = true
+
+[node name="PasswordToggle" type="TextureButton" parent="CenterPanel/Content/PasswordRow"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8_lock")
+ignore_texture_size = true
+stretch_mode = 5
+tooltip_text = "Hiện/ẩn mật khẩu"
+
+[node name="Status" type="Label" parent="CenterPanel/Content"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.72, 0.34, 1)
+theme_override_font_sizes/font_size = 14
+
+[node name="LoginButton" type="Button" parent="CenterPanel/Content"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+text = "ĐĂNG NHẬP"
+theme_override_colors/font_color = Color(1, 0.94, 0.78, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleButton")
+
+[node name="Links" type="HBoxContainer" parent="CenterPanel/Content"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 18
+
+[node name="ForgotButton" type="Button" parent="CenterPanel/Content/Links"]
+layout_mode = 2
+text = "Quên mật khẩu?"
+
+[node name="RegisterButton" type="Button" parent="CenterPanel/Content/Links"]
+layout_mode = 2
+text = "Đăng ký"
+
+[node name="UserIcon" type="TextureRect" parent="CenterPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 62.0
+offset_bottom = 62.0
+texture = ExtResource("7_user")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="LockIcon" type="TextureRect" parent="CenterPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 88.0
+offset_right = 62.0
+offset_bottom = 132.0
+texture = ExtResource("8_lock")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[connection signal="pressed" from="CenterPanel/Content/PasswordRow/PasswordToggle" to="." method="_on_password_toggle_pressed"]
+[connection signal="pressed" from="CenterPanel/Content/LoginButton" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="CenterPanel/Content/Links/ForgotButton" to="." method="_on_forgot_pressed"]
+[connection signal="pressed" from="CenterPanel/Content/Links/RegisterButton" to="." method="_on_register_pressed"]
