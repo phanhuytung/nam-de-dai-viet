@@ -29,7 +29,7 @@ func _on_viewport_resized() -> void:
 
 func _apply_responsive_layout() -> void:
     var viewport_size := get_viewport_rect().size
-    var panel_width := clamp(
+    var panel_width: float = clampf(
         viewport_size.x * (DESIGN_PANEL_SIZE.x / 720.0),
         MIN_PANEL_WIDTH,
         DESIGN_PANEL_SIZE.x
