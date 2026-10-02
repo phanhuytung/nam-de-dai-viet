@@ -25,15 +25,40 @@ const LOGIN_LEFT: float = 136.0 / DESIGN_VIEWPORT_SIZE.x
 const LOGIN_TOP: float = 550.0 / DESIGN_VIEWPORT_SIZE.y
 const LOGIN_RIGHT: float = 594.0 / DESIGN_VIEWPORT_SIZE.x
 const LOGIN_BOTTOM: float = 750.0 / DESIGN_VIEWPORT_SIZE.y
+const PORTRAIT_ASPECT: float = DESIGN_VIEWPORT_SIZE.x / DESIGN_VIEWPORT_SIZE.y
 
 func _ready() -> void:
 	_apply_responsive_layout()
+	get_viewport().size_changed.connect(_apply_responsive_layout)
 
 	password_input.secret = true
 	_set_password_toggle_texture(EYE_OPEN)
 	username_input.grab_focus()
 
 func _apply_responsive_layout() -> void:
+	# Keep one centered portrait frame inside any desktop/editor viewport.
+	# This prevents a landscape laptop viewport from cropping the lower part
+	# of the 720x1280 Login design.
+	var available_size: Vector2 = size
+	var frame_height: float = available_size.y
+	var frame_width: float = frame_height * PORTRAIT_ASPECT
+
+	if frame_width > available_size.x:
+		frame_width = available_size.x
+		frame_height = frame_width / PORTRAIT_ASPECT
+
+	var frame_left: float = (available_size.x - frame_width) * 0.5
+	var frame_top: float = (available_size.y - frame_height) * 0.5
+
+	$Decor.anchor_left = 0.0
+	$Decor.anchor_top = 0.0
+	$Decor.anchor_right = 0.0
+	$Decor.anchor_bottom = 0.0
+	$Decor.offset_left = frame_left
+	$Decor.offset_top = frame_top
+	$Decor.offset_right = frame_left + frame_width
+	$Decor.offset_bottom = frame_top + frame_height
+
 	center_panel.anchor_left = CENTER_LEFT
 	center_panel.anchor_top = CENTER_TOP
 	center_panel.anchor_right = CENTER_RIGHT
