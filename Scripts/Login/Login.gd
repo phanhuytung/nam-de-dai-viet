@@ -8,28 +8,28 @@ extends Control
 @onready var status_label: Label = $Background/CenterPanel/Content/Status
 @onready var remember_me: CheckBox = $Background/CenterPanel/Content/Links/RememberMe
 
-const EYE_OPEN := "res://Background/icon_mat_mk.png"
-const EYE_CLOSED := "res://Background/icon_khoa.png"
+const EYE_OPEN: String = "res://Background/icon_mat_mk.png"
+const EYE_CLOSED: String = "res://Background/icon_khoa.png"
 
 # Responsive layout baseline: derived from the current 720x1280 project settings
 # and the positions currently established in the Login 2D editor.
 # All four edges use percentages of the Background area, so resizing the
 # window changes the position/size proportionally instead of adding pixels.
-const DESIGN_VIEWPORT_SIZE := Vector2(720.0, 1280.0)
-const DESIGN_BACKGROUND_TOP := 0.389
-const DESIGN_BACKGROUND_HEIGHT := 1.0 - DESIGN_BACKGROUND_TOP
+const DESIGN_VIEWPORT_SIZE: Vector2 = Vector2(720.0, 1280.0)
+const DESIGN_BACKGROUND_TOP: float = 0.389
+const DESIGN_BACKGROUND_HEIGHT: float = 1.0 - DESIGN_BACKGROUND_TOP
 
 # Pixel positions from the current 720x1280 2D-editor layout,
 # converted to percentages using the project design size.
-const CENTER_LEFT := 129.0 / DESIGN_VIEWPORT_SIZE.x
-const CENTER_TOP := 290.93376 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
-const CENTER_RIGHT := 594.0 / DESIGN_VIEWPORT_SIZE.x
-const CENTER_BOTTOM := 592.551054 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const CENTER_LEFT: float = 129.0 / DESIGN_VIEWPORT_SIZE.x
+const CENTER_TOP: float = 290.93376 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const CENTER_RIGHT: float = 594.0 / DESIGN_VIEWPORT_SIZE.x
+const CENTER_BOTTOM: float = 592.551054 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
 
-const LOGIN_LEFT := 136.0 / DESIGN_VIEWPORT_SIZE.x
-const LOGIN_TOP := 550.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
-const LOGIN_RIGHT := 594.0 / DESIGN_VIEWPORT_SIZE.x
-const LOGIN_BOTTOM := 750.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const LOGIN_LEFT: float = 136.0 / DESIGN_VIEWPORT_SIZE.x
+const LOGIN_TOP: float = 550.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const LOGIN_RIGHT: float = 594.0 / DESIGN_VIEWPORT_SIZE.x
+const LOGIN_BOTTOM: float = 750.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
 
 func _ready() -> void:
 	_apply_responsive_layout()
@@ -67,7 +67,7 @@ func _set_password_toggle_texture(texture_path: String) -> void:
 
 func _on_password_toggle_pressed() -> void:
 	password_input.secret = not password_input.secret
-	var texture_path := EYE_CLOSED if password_input.secret else EYE_OPEN
+	var texture_path: String = EYE_CLOSED if password_input.secret else EYE_OPEN
 	_set_password_toggle_texture(texture_path)
 	status_label.text = "Mật khẩu đang được ẩn." if password_input.secret else "Mật khẩu đang được hiển thị."
 
@@ -75,8 +75,8 @@ func _on_remember_me_toggled(pressed: bool) -> void:
 	status_label.text = "Đã chọn ghi nhớ mật khẩu (demo)." if pressed else "Đã bỏ chọn ghi nhớ mật khẩu (demo)."
 
 func _on_login_pressed() -> void:
-	var username := username_input.text.strip_edges()
-	var password := password_input.text
+	var username: String = username_input.text.strip_edges()
+	var password: String = password_input.text
 
 	if username.is_empty() or password.is_empty():
 		status_label.text = "Demo: hãy nhập tài khoản và mật khẩu trước."
