@@ -54,13 +54,10 @@ stretch_mode = 5
 
 [node name="Background" type="TextureRect" parent="." unique_id=1267869478]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
+anchor_top = 0.41171876
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 527.0
-offset_right = 2.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -71,20 +68,21 @@ stretch_mode = 5
 [node name="CenterPanel" type="Panel" parent="Background" unique_id=928563985]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.45200002
-anchor_right = 0.05
-anchor_bottom = 0.45200002
-offset_left = 113.0
-offset_top = 83.19202
-offset_right = 624.0
-offset_bottom = 376.192
+anchor_left = 0.15694444
+anchor_top = 0.3050359
+anchor_right = 0.8666667
+anchor_bottom = 0.3050359
+offset_bottom = 293.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleEmpty")
 
 [node name="Frame" type="TextureRect" parent="Background/CenterPanel" unique_id=1264767587]
 layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_frame")
 expand_mode = 1
@@ -93,9 +91,9 @@ stretch_mode = 5
 [node name="UsernameFrame" type="TextureRect" parent="Background/CenterPanel" unique_id=327666201]
 layout_mode = 0
 offset_left = 42.0
-offset_top = 96.0
+offset_top = 48.0
 offset_right = -42.0
-offset_bottom = 150.0
+offset_bottom = 102.0
 mouse_filter = 2
 texture = ExtResource("6_input")
 expand_mode = 1
@@ -104,9 +102,9 @@ stretch_mode = 5
 [node name="PasswordFrame" type="TextureRect" parent="Background/CenterPanel" unique_id=2116953475]
 layout_mode = 0
 offset_left = 42.0
-offset_top = 164.0
+offset_top = 110.0
 offset_right = -42.0
-offset_bottom = 218.0
+offset_bottom = 164.0
 mouse_filter = 2
 texture = ExtResource("6_input")
 expand_mode = 1
@@ -114,16 +112,18 @@ stretch_mode = 5
 
 [node name="Content" type="VBoxContainer" parent="Background/CenterPanel" unique_id=1764121340]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -127.76796
-offset_right = -87.649994
-offset_bottom = 90.46402
+offset_left = 42.0
+offset_top = 48.0
+offset_right = -42.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 6
 
 [node name="UsernameInput" type="LineEdit" parent="Background/CenterPanel/Content" unique_id=1110973706]
 custom_minimum_size = Vector2(0, 54)
@@ -138,10 +138,13 @@ clear_button_enabled = true
 
 [node name="UserIcon" type="TextureRect" parent="Background/CenterPanel/Content/UsernameInput" unique_id=2067626467]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 1.0
 offset_left = 6.0
-offset_top = 6.0
+offset_top = 5.0
 offset_right = 50.0
-offset_bottom = 50.0
+offset_bottom = -5.0
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("7_user")
 expand_mode = 1
@@ -163,45 +166,51 @@ theme_override_styles/normal = SubResource("StyleButton")
 placeholder_text = "Mật khẩu"
 alignment = 1
 secret = true
+virtual_keyboard_type = 6
 
 [node name="LockIcon" type="TextureRect" parent="Background/CenterPanel/Content/PasswordRow/PasswordInput" unique_id=869384275]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 1.0
 offset_left = 2.0
-offset_top = 4.0
+offset_top = 5.0
 offset_right = 46.0
-offset_bottom = 48.0
+offset_bottom = -5.0
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("8_lock")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PasswordToggle" type="TextureButton" parent="Background/CenterPanel/Content/PasswordRow/PasswordInput" unique_id=1318482608]
+[node name="PasswordToggle" type="TextureButton" parent="Background/CenterPanel/Content/PasswordRow" unique_id=1318482608]
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = 360.00003
-offset_top = -1.2320557
-offset_right = 410.00003
-offset_bottom = 52.767944
+layout_mode = 2
+size_flags_vertical = 4
 tooltip_text = "Hiện/ẩn mật khẩu"
 texture_normal = ExtResource("8_idarh")
+texture_hover = ExtResource("8_idarh")
+texture_pressed = ExtResource("8_idarh")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Status" type="Label" parent="Background/CenterPanel/Content" unique_id=557356631]
-custom_minimum_size = Vector2(0, 28)
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
 theme_override_font_sizes/font_size = 14
 horizontal_alignment = 1
 vertical_alignment = 1
+text = ""
 
-[node name="Links" type="HBoxContainer" parent="Background/CenterPanel/Content" unique_id=865890305]
+[node name="Links" type="HFlowContainer" parent="Background/CenterPanel/Content" unique_id=865890305]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
 alignment = 1
 
 [node name="RememberMe" type="CheckBox" parent="Background/CenterPanel/Content/Links" unique_id=1717452947]
-custom_minimum_size = Vector2(0, 36)
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.84, 0.7, 1)
 theme_override_colors/font_hover_color = Color(1, 0.94, 0.78, 1)
@@ -209,15 +218,17 @@ theme_override_font_sizes/font_size = 16
 text = "Ghi nhớ"
 
 [node name="ForgotButton" type="Button" parent="Background/CenterPanel/Content/Links" unique_id=1222934277]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "Quên mật khẩu?"
 
 [node name="RegisterButton" type="Button" parent="Background/CenterPanel/Content/Links" unique_id=75592488]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "Đăng ký"
 
 [node name="LoginButton" type="Button" parent="Background/CenterPanel/Content" unique_id=689596382]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0.92, 1)
@@ -229,7 +240,7 @@ theme_override_styles/hover = SubResource("StyleLoginButton")
 theme_override_styles/focus = SubResource("StyleLoginButton")
 text = "ĐĂNG NHẬP"
 
-[connection signal="pressed" from="Background/CenterPanel/Content/PasswordRow/PasswordInput/PasswordToggle" to="." method="_on_password_toggle_pressed"]
+[connection signal="pressed" from="Background/CenterPanel/Content/PasswordRow/PasswordToggle" to="." method="_on_password_toggle_pressed"]
 [connection signal="toggled" from="Background/CenterPanel/Content/Links/RememberMe" to="." method="_on_remember_me_toggled"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/ForgotButton" to="." method="_on_forgot_pressed"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/RegisterButton" to="." method="_on_register_pressed"]
