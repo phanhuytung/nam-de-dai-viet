@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Login/Login.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://Background/nen_dang_nhap.png" id="2_bg"]
@@ -90,6 +90,28 @@ theme_override_styles/panel = SubResource("StyleEmpty")
 [node name="Frame" type="TextureRect" parent="CenterPanel"]
 layout_mode = 2
 texture = ExtResource("5_frame")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="UsernameFrame" type="TextureRect" parent="CenterPanel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 96.0
+offset_right = -42.0
+offset_bottom = 150.0
+texture = ExtResource("6_input")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="PasswordFrame" type="TextureRect" parent="CenterPanel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 164.0
+offset_right = -42.0
+offset_bottom = 218.0
+texture = ExtResource("6_input")
 expand_mode = 1
 stretch_mode = 5
 mouse_filter = 2
