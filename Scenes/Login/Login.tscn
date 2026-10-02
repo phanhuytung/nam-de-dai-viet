@@ -191,6 +191,14 @@ texture_normal = ExtResource("8_idarh")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="RememberMe" type="CheckBox" parent="Background/CenterPanel/Content"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.84, 0.7, 1)
+theme_override_colors/font_hover_color = Color(1, 0.94, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+text = "Ghi nhớ tài khoản & mật khẩu"
+
 [node name="Status" type="Label" parent="Background/CenterPanel/Content"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
@@ -227,6 +235,7 @@ layout_mode = 2
 text = "Đăng ký"
 
 [connection signal="pressed" from="Background/CenterPanel/Content/PasswordRow/PasswordInput/PasswordToggle" to="." method="_on_password_toggle_pressed"]
+[connection signal="toggled" from="Background/CenterPanel/Content/RememberMe" to="." method="_on_remember_me_toggled"]
 [connection signal="pressed" from="Background/CenterPanel/Content/LoginButton" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/ForgotButton" to="." method="_on_forgot_pressed"]
 [connection signal="pressed" from="Background/CenterPanel/Content/Links/RegisterButton" to="." method="_on_register_pressed"]
