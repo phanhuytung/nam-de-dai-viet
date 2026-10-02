@@ -39,8 +39,12 @@ func _fit_desktop_portrait_window() -> void:
 			float(usable.size.x) / float(width),
 			float(usable.size.y) / float(height)
 		)
+
 		width = max(1, int(floor(float(width) * scale)))
 		height = max(1, int(floor(float(height) * scale)))
 
 	get_window().size = Vector2i(width, height)
-	get_window().position = usable.position + (usable.size - Vector2i(width, height)) / 2
+
+	var center_x: int = int(floor(float(usable.size.x - width) / 2.0))
+	var center_y: int = int(floor(float(usable.size.y - height) / 2.0))
+	get_window().position = usable.position + Vector2i(center_x, center_y)
