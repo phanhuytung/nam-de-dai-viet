@@ -1,5 +1,6 @@
 extends Control
 
+@onready var center_panel: Panel = $Background/CenterPanel
 @onready var username_input: LineEdit = $Background/CenterPanel/Content/UsernameInput
 @onready var password_input: LineEdit = $Background/CenterPanel/Content/PasswordRow/PasswordInput
 @onready var password_toggle: TextureButton = $Background/CenterPanel/Content/PasswordRow/PasswordToggle
@@ -9,10 +10,42 @@ extends Control
 const EYE_OPEN := "res://Background/icon_mat_mk.png"
 const EYE_CLOSED := "res://Background/icon_khoa.png"
 
+# These values preserve the positions established in the 2D editor at 720x1280.
+const DESIGN_PANEL_CENTER := Vector2(0.51180556, 0.3050359)
+const DESIGN_PANEL_SIZE := Vector2(511.0, 293.0)
+const MIN_PANEL_WIDTH := 300.0
+const COMPACT_PANEL_HEIGHT := 330.0
+
 func _ready() -> void:
+    get_viewport().size_changed.connect(_on_viewport_resized)
+    _apply_responsive_layout()
+
     password_input.secret = true
     _set_password_toggle_texture(EYE_OPEN)
     username_input.grab_focus()
+
+func _on_viewport_resized() -> void:
+    _apply_responsive_layout()
+
+func _apply_responsive_layout() -> void:
+    var viewport_size := get_viewport_rect().size
+    var panel_width := clamp(
+        viewport_size.x * (DESIGN_PANEL_SIZE.x / 720.0),
+        MIN_PANEL_WIDTH,
+        DESIGN_PANEL_SIZE.x
+    )
+    var panel_height := DESIGN_PANEL_SIZE.y
+    if panel_width < 430.0:
+        panel_height = COMPACT_PANEL_HEIGHT
+
+    center_panel.anchor_left = DESIGN_PANEL_CENTER.x
+    center_panel.anchor_right = DESIGN_PANEL_CENTER.x
+    center_panel.anchor_top = DESIGN_PANEL_CENTER.y
+    center_panel.anchor_bottom = DESIGN_PANEL_CENTER.y
+    center_panel.offset_left = -panel_width * 0.5
+    center_panel.offset_right = panel_width * 0.5
+    center_panel.offset_top = -panel_height * 0.5
+    center_panel.offset_bottom = panel_height * 0.5
 
 func _set_password_toggle_texture(texture_path: String) -> void:
     var texture: Texture2D = load(texture_path)
