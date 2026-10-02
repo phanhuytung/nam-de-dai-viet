@@ -1,7 +1,7 @@
 extends Control
 
 @onready var center_panel: Panel = $Decor/CenterPanel
-@onready var login_button: Button = $Background/LoginButton
+@onready var login_button: Button = $Decor/LoginButton
 @onready var username_input: LineEdit = $Decor/CenterPanel/Content/UsernameInput
 @onready var password_input: LineEdit = $Decor/CenterPanel/Content/PasswordRow/PasswordInput
 @onready var password_toggle: TextureButton = $Decor/CenterPanel/Content/PasswordRow/PasswordToggle
@@ -11,16 +11,11 @@ extends Control
 const EYE_OPEN: String = "res://Background/icon_mat_mk.png"
 const EYE_CLOSED: String = "res://Background/icon_khoa.png"
 
-# Responsive layout baseline: derived from the current 720x1280 project settings
-# and the positions currently established in the Login 2D editor.
-# All four edges use percentages of the Background area, so resizing the
-# window changes the position/size proportionally instead of adding pixels.
+# 720x1280 is the project design baseline.
+# All responsive positions are percentages of the Decor control,
+# which is the main visual frame and the parent of all Login content.
 const DESIGN_VIEWPORT_SIZE: Vector2 = Vector2(720.0, 1280.0)
-const DESIGN_BACKGROUND_TOP: float = 0.389
-const DESIGN_BACKGROUND_HEIGHT: float = 1.0 - DESIGN_BACKGROUND_TOP
 
-# Pixel positions from the current 720x1280 2D-editor layout,
-# converted to percentages using the project design size.
 const CENTER_LEFT: float = 129.0 / DESIGN_VIEWPORT_SIZE.x
 const CENTER_TOP: float = 290.93376 / DESIGN_VIEWPORT_SIZE.y
 const CENTER_RIGHT: float = 594.0 / DESIGN_VIEWPORT_SIZE.x
@@ -39,8 +34,6 @@ func _ready() -> void:
 	username_input.grab_focus()
 
 func _apply_responsive_layout() -> void:
-	# Keep the exact 2D-editor proportions while allowing the Background
-	# control to resize with the current viewport.
 	center_panel.anchor_left = CENTER_LEFT
 	center_panel.anchor_top = CENTER_TOP
 	center_panel.anchor_right = CENTER_RIGHT
