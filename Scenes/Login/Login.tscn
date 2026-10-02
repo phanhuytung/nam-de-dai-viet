@@ -68,11 +68,14 @@ stretch_mode = 5
 [node name="CenterPanel" type="Panel" parent="Background" unique_id=928563985]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.15694444
+anchor_left = 0.51180556
 anchor_top = 0.3050359
-anchor_right = 0.8666667
+anchor_right = 0.51180556
 anchor_bottom = 0.3050359
-offset_bottom = 293.0
+offset_left = -255.5
+offset_top = -146.5
+offset_right = 255.5
+offset_bottom = 146.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleEmpty")
