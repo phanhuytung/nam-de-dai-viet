@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bmx461iyvlrvx"]
 
 [ext_resource type="Script" uid="uid://jc04qtti6ntv" path="res://Scripts/Login/Login.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="bei1l6noboih4" path="res://Background/nen_dang_nhap.png" id="2_bg"]
-[ext_resource type="Texture2D" uid="fmq6w52ab25m" path="res://Background/man_hinh_dang_nhap.png" id="3_decor"]
-[ext_resource type="Texture2D" uid="bpbxudaotpjce" path="res://Background/khung_nhap_chu.png" id="6_input"]
-[ext_resource type="Texture2D" uid="bgfwfglxid0at" path="res://Background/icon_nguoi_dung.png" id="7_user"]
-[ext_resource type="Texture2D" uid="bn8l0lxqhwfet" path="res://Background/icon_mat_mk.png" id="8_idarh"]
-[ext_resource type="Texture2D" uid="c6xr6ymjnvrfa" path="res://Background/icon_khoa.png" id="8_lock"]
+[ext_resource type="Texture2D" path="res://Background/nen_dang_nhap.png" id="2_bg"]
+[ext_resource type="Texture2D" path="res://Background/man_hinh_dang_nhap.png" id="3_decor"]
+[ext_resource type="Texture2D" path="res://Background/khung_nhap_chu.png" id="6_input"]
+[ext_resource type="Texture2D" path="res://Background/icon_nguoi_dung.png" id="7_user"]
+[ext_resource type="Texture2D" path="res://Background/icon_mat_mk.png" id="8_idarh"]
+[ext_resource type="Texture2D" path="res://Background/icon_khoa.png" id="8_lock"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleEmpty"]
 
