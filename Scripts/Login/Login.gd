@@ -1,12 +1,12 @@
 extends Control
 
-@onready var center_panel: Panel = $Background/CenterPanel
+@onready var center_panel: Panel = $Decor/CenterPanel
 @onready var login_button: Button = $Background/LoginButton
-@onready var username_input: LineEdit = $Background/CenterPanel/Content/UsernameInput
-@onready var password_input: LineEdit = $Background/CenterPanel/Content/PasswordRow/PasswordInput
-@onready var password_toggle: TextureButton = $Background/CenterPanel/Content/PasswordRow/PasswordToggle
-@onready var status_label: Label = $Background/CenterPanel/Content/Status
-@onready var remember_me: CheckBox = $Background/CenterPanel/Content/Links/RememberMe
+@onready var username_input: LineEdit = $Decor/CenterPanel/Content/UsernameInput
+@onready var password_input: LineEdit = $Decor/CenterPanel/Content/PasswordRow/PasswordInput
+@onready var password_toggle: TextureButton = $Decor/CenterPanel/Content/PasswordRow/PasswordToggle
+@onready var status_label: Label = $Decor/CenterPanel/Content/Status
+@onready var remember_me: CheckBox = $Decor/CenterPanel/Content/Links/RememberMe
 
 const EYE_OPEN: String = "res://Background/icon_mat_mk.png"
 const EYE_CLOSED: String = "res://Background/icon_khoa.png"
@@ -22,14 +22,14 @@ const DESIGN_BACKGROUND_HEIGHT: float = 1.0 - DESIGN_BACKGROUND_TOP
 # Pixel positions from the current 720x1280 2D-editor layout,
 # converted to percentages using the project design size.
 const CENTER_LEFT: float = 129.0 / DESIGN_VIEWPORT_SIZE.x
-const CENTER_TOP: float = 290.93376 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const CENTER_TOP: float = 290.93376 / DESIGN_VIEWPORT_SIZE.y
 const CENTER_RIGHT: float = 594.0 / DESIGN_VIEWPORT_SIZE.x
-const CENTER_BOTTOM: float = 592.551054 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const CENTER_BOTTOM: float = 592.551054 / DESIGN_VIEWPORT_SIZE.y
 
 const LOGIN_LEFT: float = 136.0 / DESIGN_VIEWPORT_SIZE.x
-const LOGIN_TOP: float = 550.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const LOGIN_TOP: float = 550.0 / DESIGN_VIEWPORT_SIZE.y
 const LOGIN_RIGHT: float = 594.0 / DESIGN_VIEWPORT_SIZE.x
-const LOGIN_BOTTOM: float = 750.0 / (DESIGN_VIEWPORT_SIZE.y * DESIGN_BACKGROUND_HEIGHT)
+const LOGIN_BOTTOM: float = 750.0 / DESIGN_VIEWPORT_SIZE.y
 
 func _ready() -> void:
 	_apply_responsive_layout()
