@@ -184,6 +184,15 @@ texture_normal = ExtResource("8_idarh")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Status" type="Label" parent="Background/CenterPanel/Content"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+theme_override_font_sizes/font_size = 14
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LoginButton" type="Button" parent="Background/CenterPanel/Content" unique_id=689596382]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
