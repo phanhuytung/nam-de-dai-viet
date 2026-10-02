@@ -1,6 +1,7 @@
 extends Control
 
 @onready var center_panel: Panel = $Background/CenterPanel
+@onready var login_button: Button = $Background/LoginButton
 @onready var username_input: LineEdit = $Background/CenterPanel/Content/UsernameInput
 @onready var password_input: LineEdit = $Background/CenterPanel/Content/PasswordRow/PasswordInput
 @onready var password_toggle: TextureButton = $Background/CenterPanel/Content/PasswordRow/PasswordToggle
@@ -10,42 +11,49 @@ extends Control
 const EYE_OPEN := "res://Background/icon_mat_mk.png"
 const EYE_CLOSED := "res://Background/icon_khoa.png"
 
-# These values preserve the positions established in the 2D editor at 720x1280.
-const DESIGN_PANEL_CENTER := Vector2(0.51180556, 0.3050359)
-const DESIGN_PANEL_SIZE := Vector2(511.0, 293.0)
-const MIN_PANEL_WIDTH := 300.0
-const COMPACT_PANEL_HEIGHT := 330.0
+# Responsive layout baseline: derived from the current 720x1280 project settings
+# and the positions currently established in the Login 2D editor.
+# All four edges use percentages of the Background area, so resizing the
+# window changes the position/size proportionally instead of adding pixels.
+const DESIGN_VIEWPORT_SIZE := Vector2(720.0, 1280.0)
+
+const CENTER_LEFT := 0.17916667
+const CENTER_TOP := 0.372
+const CENTER_RIGHT := 0.825
+const CENTER_BOTTOM := 0.7576604
+
+const LOGIN_LEFT := 0.18888889
+const LOGIN_TOP := 0.70325285
+const LOGIN_RIGHT := 0.825
+const LOGIN_BOTTOM := 0.95898116
 
 func _ready() -> void:
-	get_viewport().size_changed.connect(_on_viewport_resized)
 	_apply_responsive_layout()
 
 	password_input.secret = true
 	_set_password_toggle_texture(EYE_OPEN)
 	username_input.grab_focus()
 
-func _on_viewport_resized() -> void:
-	_apply_responsive_layout()
-
 func _apply_responsive_layout() -> void:
-	var viewport_size := get_viewport_rect().size
-	var panel_width: float = clampf(
-		viewport_size.x * (DESIGN_PANEL_SIZE.x / 720.0),
-		MIN_PANEL_WIDTH,
-		DESIGN_PANEL_SIZE.x
-	)
-	var panel_height := DESIGN_PANEL_SIZE.y
-	if panel_width < 430.0:
-		panel_height = COMPACT_PANEL_HEIGHT
+	# Keep the exact 2D-editor proportions while allowing the Background
+	# control to resize with the current viewport.
+	center_panel.anchor_left = CENTER_LEFT
+	center_panel.anchor_top = CENTER_TOP
+	center_panel.anchor_right = CENTER_RIGHT
+	center_panel.anchor_bottom = CENTER_BOTTOM
+	center_panel.offset_left = 0.0
+	center_panel.offset_top = 0.0
+	center_panel.offset_right = 0.0
+	center_panel.offset_bottom = 0.0
 
-	center_panel.anchor_left = DESIGN_PANEL_CENTER.x
-	center_panel.anchor_right = DESIGN_PANEL_CENTER.x
-	center_panel.anchor_top = DESIGN_PANEL_CENTER.y
-	center_panel.anchor_bottom = DESIGN_PANEL_CENTER.y
-	center_panel.offset_left = -panel_width * 0.5
-	center_panel.offset_right = panel_width * 0.5
-	center_panel.offset_top = -panel_height * 0.5
-	center_panel.offset_bottom = panel_height * 0.5
+	login_button.anchor_left = LOGIN_LEFT
+	login_button.anchor_top = LOGIN_TOP
+	login_button.anchor_right = LOGIN_RIGHT
+	login_button.anchor_bottom = LOGIN_BOTTOM
+	login_button.offset_left = 0.0
+	login_button.offset_top = 0.0
+	login_button.offset_right = 0.0
+	login_button.offset_bottom = 0.0
 
 func _set_password_toggle_texture(texture_path: String) -> void:
 	var texture: Texture2D = load(texture_path)
