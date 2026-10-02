@@ -1,9 +1,9 @@
 extends Control
 
-@onready var username_input: LineEdit = $CenterPanel/Content/UsernameInput
-@onready var password_input: LineEdit = $CenterPanel/Content/PasswordRow/PasswordInput
-@onready var password_toggle: TextureButton = $CenterPanel/Content/PasswordRow/PasswordToggle
-@onready var status_label: Label = $CenterPanel/Content/Status
+@onready var username_input: LineEdit = $Background/CenterPanel/Content/UsernameInput
+@onready var password_input: LineEdit = $Background/CenterPanel/Content/PasswordRow/PasswordInput
+@onready var password_toggle: TextureButton = $Background/CenterPanel/Content/PasswordRow/PasswordInput/PasswordToggle
+@onready var status_label: Label = $Background/CenterPanel/Content/Status
 
 const EYE_OPEN := "res://Background/icon_mat_mk.png"
 const EYE_CLOSED := "res://Background/icon_khoa.png"
