@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://fmq6w52ab25m" path="res://Background/man_hinh_dang_nhap.png" id="3_decor"]
 [ext_resource type="Texture2D" uid="uid://bpbxudaotpjce" path="res://Background/khung_nhap_chu.png" id="6_input"]
 [ext_resource type="Texture2D" uid="uid://bgfwfglxid0at" path="res://Background/icon_nguoi_dung.png" id="7_user"]
-[ext_resource type="Texture2D" uid="uid://bn8l0lxqhwfet" path="res://Background/icon_mat_mk.png" id="8_eye"]
+[ext_resource type="Texture2D" uid="uid://bn8l0lxqhwfet" path="res://Background/icon_mat_mk.png" id="8_idarh"]
 [ext_resource type="Texture2D" uid="uid://c6xr6ymjnvrfa" path="res://Background/icon_khoa.png" id="8_lock"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em3yk"]
-content_margin_left = 120.0
+content_margin_left = 100.0
 content_margin_right = 20.0
 bg_color = Color(0.79, 0.58776003, 0.28440002, 1)
 border_width_left = 2
@@ -25,7 +25,7 @@ shadow_size = 6
 shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abvhl"]
-content_margin_left = 120.0
+content_margin_left = 100.0
 content_margin_right = 20.0
 border_width_left = 2
 border_width_top = 2
@@ -37,9 +37,9 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2f7h"]
-content_margin_left = 150.0
-content_margin_right = 120.0
-bg_color = Color(0.79, 0.58776002, 0.28440002, 1)
+content_margin_left = 100.0
+content_margin_right = 100.0
+bg_color = Color(0.79, 0.58776003, 0.28440002, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -53,9 +53,8 @@ shadow_size = 6
 shadow_offset = Vector2(0, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqmyx"]
-content_margin_left = 150.0
-content_margin_top = 0.0
-content_margin_right = 120.0
+content_margin_left = 100.0
+content_margin_top = 100.0
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -76,7 +75,7 @@ script = ExtResource("1_script")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1558554261]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -86,21 +85,15 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="LoginArea" type="Control" parent="." unique_id=335902504]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 2340.0
 
 [node name="A" type="Control" parent="LoginArea" unique_id=1975313561]
-layout_mode = 1
 anchors_preset = 0
-anchor_right = 1.0
-anchor_bottom = 0.85470087
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_top = 1000.0
+offset_right = 1280.0
+offset_bottom = 2000.0
 
 [node name="ABackground" type="TextureRect" parent="LoginArea/A" unique_id=788129626]
 layout_mode = 1
@@ -114,36 +107,26 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="AContent" type="Control" parent="LoginArea/A" unique_id=1540668666]
-layout_mode = 1
 anchors_preset = 0
-anchor_left = 0.22265625
-anchor_right = 0.7734375
-anchor_top = 0.31
-anchor_bottom = 0.754
-offset_top = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 285.0
+offset_top = 310.0
+offset_right = 990.0
+offset_bottom = 754.0
 
 [node name="UsernameRow" type="Control" parent="LoginArea/A/AContent" unique_id=397576580]
-layout_mode = 1
 anchors_preset = 0
-anchor_right = 1.0
+offset_right = 705.0
 offset_bottom = 80.0
-grow_horizontal = 2
 
 [node name="UsernameInput" type="LineEdit" parent="LoginArea/A/AContent/UsernameRow" unique_id=816757016]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 705.0
+offset_bottom = 80.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_em3yk")
 theme_override_styles/focus = SubResource("StyleBoxFlat_abvhl")
 placeholder_text = "Tên đăng nhập"
-alignment = 0
+alignment = 1
 
 [node name="UsernameIcon" type="TextureRect" parent="LoginArea/A/AContent/UsernameRow" unique_id=2145778016]
 layout_mode = 0
@@ -155,25 +138,20 @@ mouse_filter = 2
 texture = ExtResource("7_user")
 
 [node name="PasswordRow" type="Control" parent="LoginArea/A/AContent" unique_id=1127236636]
-layout_mode = 1
 anchors_preset = 0
-anchor_right = 1.0
-offset_top = 100.0
-offset_bottom = 180.0
-grow_horizontal = 2
+offset_top = 170.0
+offset_right = 705.0
+offset_bottom = 250.0
 
 [node name="PasswordInput" type="LineEdit" parent="LoginArea/A/AContent/PasswordRow" unique_id=1536103484]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 705.0
+offset_bottom = 80.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_s2f7h")
 theme_override_styles/focus = SubResource("StyleBoxFlat_jqmyx")
 placeholder_text = "Mật khẩu"
-alignment = 0
+alignment = 1
 secret = true
 
 [node name="PasswordIcon" type="TextureRect" parent="LoginArea/A/AContent/PasswordRow" unique_id=2026041144]
@@ -182,7 +160,6 @@ offset_top = -12.0
 offset_right = 500.0
 offset_bottom = 488.0
 scale = Vector2(0.2, 0.2)
-mouse_filter = 2
 texture = ExtResource("8_lock")
 
 [node name="PasswordToggle" type="TextureButton" parent="LoginArea/A/AContent/PasswordRow" unique_id=1176039507]
@@ -193,22 +170,18 @@ offset_top = -12.0
 offset_right = 1100.0
 offset_bottom = 488.0
 scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("8_eye")
-texture_hover = ExtResource("8_eye")
-texture_pressed = ExtResource("8_eye")
+texture_normal = ExtResource("8_idarh")
 
-[node name="PasswordSlash" type="Line2D" parent="LoginArea/A/AContent/PasswordRow"]
+[node name="PasswordSlash" type="Line2D" parent="LoginArea/A/AContent/PasswordRow" unique_id=1251569278]
 position = Vector2(600, -12)
 points = PackedVector2Array(15, 85, 85, 15)
 width = 4.0
 
 [node name="LoginOptionsRow" type="Control" parent="LoginArea/A/AContent" unique_id=470861434]
-layout_mode = 1
 anchors_preset = 0
-anchor_right = 1.0
-offset_top = 190.0
-offset_bottom = 250.0
-grow_horizontal = 2
+offset_top = 350.0
+offset_right = 705.0
+offset_bottom = 410.0
 
 [node name="CheckBox" type="CheckBox" parent="LoginArea/A/AContent/LoginOptionsRow" unique_id=1176645121]
 layout_mode = 0
@@ -234,32 +207,31 @@ theme_override_font_sizes/font_size = 32
 text = "Đăng ký"
 
 [node name="BContent" type="Control" parent="LoginArea/A" unique_id=1293788180]
-layout_mode = 1
 anchors_preset = 0
-anchor_left = 0.22265625
-anchor_right = 0.7734375
-anchor_top = 0.76
-anchor_bottom = 1.0
-offset_top = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 285.0
+offset_top = 760.0
+offset_right = 990.0
+offset_bottom = 940.0
 
 [node name="LoginButton" type="TextureButton" parent="LoginArea/A/BContent" unique_id=1375221832]
 layout_mode = 0
-offset_left = 102.5
-offset_top = 0.0
-offset_right = 582.5
-offset_bottom = 480.0
-scale = Vector2(0.48, 0.48)
+offset_left = 230.0
+offset_right = 730.0
+offset_bottom = 500.0
+scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_input")
-ignore_texture_size = true
 
 [node name="LoginButtonText" type="Label" parent="LoginArea/A/BContent/LoginButton" unique_id=784116570]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.5
+offset_top = -75.0
+offset_right = 352.5
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
