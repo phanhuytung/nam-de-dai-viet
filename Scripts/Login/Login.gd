@@ -88,7 +88,6 @@ func _on_login_button_pressed() -> void:
 	var password: String = password_input.text
 	print("Đăng nhập: ĐÃ NHẤP")
 	print("Tên đăng nhập: ", username)
-	print("Mật khẩu: ", password)
 	if username.is_empty():
 		print("Đăng nhập: THIẾU TÊN ĐĂNG NHẬP")
 		username_input.grab_focus()
