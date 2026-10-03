@@ -235,16 +235,16 @@ anchors_preset = 0
 anchor_left = 0.22265625
 anchor_right = 0.7734375
 offset_top = 760.0
-offset_bottom = 940.0
+offset_bottom = 1000.0
 grow_horizontal = 2
 
 [node name="LoginButton" type="TextureButton" parent="LoginArea/A/BContent" unique_id=1375221832]
 layout_mode = 0
 offset_left = 102.5
 offset_top = 0.0
-offset_right = 602.5
-offset_bottom = 500.0
-scale = Vector2(0.5, 0.5)
+offset_right = 582.5
+offset_bottom = 480.0
+scale = Vector2(0.48, 0.48)
 texture_normal = ExtResource("6_input")
 ignore_texture_size = true
 
