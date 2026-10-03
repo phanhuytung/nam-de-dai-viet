@@ -97,9 +97,10 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 1.0
-offset_top = 1000.0
-offset_bottom = 2000.0
+anchor_bottom = 0.85470087
+offset_bottom = 0.0
 grow_horizontal = 2
+grow_vertical = 0
 
 [node name="ABackground" type="TextureRect" parent="LoginArea/A" unique_id=788129626]
 layout_mode = 1
@@ -117,9 +118,12 @@ layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.22265625
 anchor_right = 0.7734375
-offset_top = 310.0
-offset_bottom = 754.0
+anchor_top = 0.31
+anchor_bottom = 0.754
+offset_top = 0.0
+offset_bottom = 0.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="UsernameRow" type="Control" parent="LoginArea/A/AContent" unique_id=397576580]
 layout_mode = 1
@@ -234,9 +238,12 @@ layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.22265625
 anchor_right = 0.7734375
-offset_top = 760.0
-offset_bottom = 1000.0
+anchor_top = 0.76
+anchor_bottom = 1.0
+offset_top = 0.0
+offset_bottom = 0.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LoginButton" type="TextureButton" parent="LoginArea/A/BContent" unique_id=1375221832]
 layout_mode = 0
